@@ -177,7 +177,7 @@ export const Projects = [
     product: "Lyft",
     client: "Lyft",
     year: "",
-    role: "",
+    role: "Senior Art Director",
     problem: "",
     solution: "",
     insight: "",
@@ -368,6 +368,68 @@ export const Projects = [
       "/images/projects/",
     ],
     video: "https://youtu.be/oQeiBshIpPM",
+    awards: [
+      {
+        award: "",
+        category: "",
+        show: "",
+        year: ""
+      },
+    ],
+    skills: [
+      "",
+    ],
+  },
+  {
+    id: "tomb",
+    path: "/tomb",
+    title: "de_tomb",
+    product: "",
+    client: "",
+    year: "",
+    role: "",
+    problem: "",
+    solution: "",
+    insight: "",
+    audience: "",
+    description: "",
+    hero: "/images/projects/heroes/tomb.jpg",
+    images: [
+      "/images/projects/",
+      "/images/projects/",
+    ],
+    video: "https://youtu.be/o6K2__NjUPA",
+    awards: [
+      {
+        award: "",
+        category: "",
+        show: "",
+        year: ""
+      },
+    ],
+    skills: [
+      "",
+    ],
+  },
+  {
+    id: "illustration",
+    path: "/illustration",
+    title: "Illustration",
+    product: "",
+    client: "",
+    year: "",
+    role: "",
+    problem: "",
+    solution: "",
+    insight: "",
+    audience: "",
+    description: "",
+    hero: "/images/projects/heroes/illustration.jpg",
+    images: [
+      "/images/projects/",
+      "/images/projects/",
+    ],
+    video: "https://youtu.be/o6K2__NjUPA",
     awards: [
       {
         award: "",

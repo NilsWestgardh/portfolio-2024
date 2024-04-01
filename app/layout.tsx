@@ -56,7 +56,7 @@ export default function RootLayout({
           >
             <Link href="/">
               <Image
-                src="/nils64.png"
+                src="/images/nils64.png"
                 alt="Nils Logo"
                 width={60}
                 height={50}
