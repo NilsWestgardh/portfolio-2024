@@ -3,7 +3,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import Thumbnail from "@/app/components/Thumbnail";
-import { Projects } from "@/app/utils/Projects";
+import { Projects } from "@/app/utils/data/projectsData";
 
 export default function Gallery() {
   return (

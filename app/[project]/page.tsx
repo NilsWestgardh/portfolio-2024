@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useParams } from "next/navigation";
-import { Projects } from "@/app/utils/Projects";
+import { Projects } from "@/app/utils/data/projectsData";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -35,6 +35,8 @@ export default function Project({
         w-full
         h-full
         gap-12
+        px-[5%]
+        md:px-[20%]
       "
     >
       <Box
@@ -59,6 +61,25 @@ export default function Project({
         >
           {project?.title}
         </Typography>
+        {project?.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Typography
+              variant="body2"
+              className="
+                text-black
+                hover:opacity-80
+                -mt-2
+                mb-2
+              "
+            >
+              www.{project.link.toString().replace(/(^\w+:|^)\/\//, "")}
+            </Typography>
+          </a>
+        )}
         {project?.product && (
           <Typography
             variant="h4"
@@ -104,8 +125,8 @@ export default function Project({
             gap-1
             md:gap-2
             mt-2
-            px-[10%]
-            md:px-[30%]
+            px-[5%]
+            md:px-[10%]
           "
         >
           {project.skills.map((skill, index) => (
@@ -127,12 +148,16 @@ export default function Project({
         </Box>
       </Box>
       {project?.video && (
-        <Image
-          src={project.hero}
-          alt={project.title}
-          width={1280}
-          height={720}
-        />
+        <div className="relative w-full overflow-hidden pt-[56.25%]">
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src={project.video}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin" 
+            allowFullScreen
+          ></iframe>
+        </div>
       )}
       <Box
         id="project-content-container"
@@ -145,16 +170,19 @@ export default function Project({
           gap-12
         "
       >
-        <Typography
-          variant="body1"
-          className="
-            font-medium
-            text-black
-            text-center
-          "
-        >
-          {project.description}
-        </Typography>
+        {project?.description && (
+          <Typography
+            variant="body2"
+            className="
+              font-medium
+              text-black
+              text-center
+            "
+          >
+            {project.description}
+          </Typography>
+        )}
+        
         {project?.problem && (
           <Box
             id="project-problem"

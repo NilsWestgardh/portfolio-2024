@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import SkillsList from "@/app/components/SkillsList";
 
 export default function About() {
   function calculateAge(birthDate: string) {
@@ -15,11 +16,6 @@ export default function About() {
       age--;
     }
     return age;
-  }
-
-  function calculateExperience(startAge: number) {
-    const currentAge = calculateAge("1988-10-25");
-    return currentAge - startAge;
   }
 
   return (
@@ -88,110 +84,7 @@ export default function About() {
         >
           Entrepreneur • Art Director • Copywriter • Designer • Web Developer • Game Designer
         </Typography>
-        <Box
-          id="skills"
-          className="
-            flex
-            flex-row
-            flex-wrap
-            items-center
-            justify-center
-            w-full
-            gap-2
-            mt-4
-          "
-        >
-          <Typography
-            variant="caption"
-            component="span"
-            className="
-              text-center
-              font-medium
-              pl-2
-              pr-1
-              py-1
-              rounded-full
-              border
-              border-black
-            "
-          >
-            Photoshop 
-            <Typography
-              variant="caption"
-              className="
-                text-center
-                text-white
-                bg-black
-                px-2
-                py-1
-                rounded-full
-                ml-2
-              "
-            >
-              {calculateExperience(17)} years
-            </Typography>
-          </Typography>
-          <Typography
-            variant="caption"
-            component="span"
-            className="
-              text-center
-              font-medium
-              pl-2
-              pr-1
-              py-1
-              rounded-full
-              border
-              border-black/50
-            "
-          >
-            Figma 
-            <Typography
-              variant="caption"
-              className="
-                text-center
-                text-white
-                bg-black
-                px-2
-                py-1
-                rounded-full
-                ml-2
-              "
-            >
-              {calculateExperience(32)} years
-            </Typography>
-          </Typography>
-          <Typography
-            variant="caption"
-            component="span"
-            className="
-              text-center
-              font-medium
-              pl-2
-              pr-1
-              py-1
-              rounded-full
-              border
-              border-black/50
-            "
-          >
-            Next.js 
-            <Typography
-              variant="caption"
-              className="
-                text-center
-                text-white
-                bg-black
-                px-2
-                py-1
-                rounded-full
-                ml-2
-              "
-            >
-              {calculateExperience(35)} years
-            </Typography>
-          </Typography>
-        </Box>
+        <SkillsList />
       </Box>
       <Box
         id="about-content"
