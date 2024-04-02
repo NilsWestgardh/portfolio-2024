@@ -135,7 +135,7 @@ export const Projects = [
     insight: "",
     audience: "",
     description: "When PUBG announced a winter map was coming to the game, I put together a design document for a PUBG winter-map set in Scandinavia. It got 15K+ upvotes on Reddit, and was reviewed by Shroud and BreaK on their Twitch streams.",
-    hero: "/images/projects/heroes/nordheim.jpg",
+    hero: "/images/projects/heroes/nordheim.png",
     images: [
       "/images/projects/nordheim/nordheim-1.jpeg",
     ],
