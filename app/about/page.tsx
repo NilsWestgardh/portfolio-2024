@@ -119,7 +119,15 @@ export default function About() {
             text-black/80
           "
         >
-          Lorem ipsum dolor sit amet
+          I spent 10 years in San Francisco, where I graduated from Academy of Art University. I joined AKQA, and became an integral part of their creative team, working on many big-name brands like Activision Blizzard, NVIDIA, Audi, Levi&apos;s, Visa, Verizon, Apple, and more.
+          <br/>
+          <br/>After that I joined Lyft and their in-house agency, where I worked on everything from small and scrappy campaigns to nation-wide ones. 
+          
+          <br/>
+          <br/>Then, in 2020 I moved back to my native Sweden, and started studying game design. Eventually I quit to start my own marketing agency, which set me on the path of entrepreneurship. 
+          
+          <br/>
+          <br/>I&apos;m currently bootstrapping my second startup attempt. That said, I&apos;m open to new opportunities where my wide-ranging skill set can be of use. So don&apos;t hesitate to reach out if you need help!
         </Typography>
       </Box>
     </Box>

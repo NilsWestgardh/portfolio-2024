@@ -52,7 +52,8 @@ export default function RootLayout({
                 w-full
                 py-2
                 px-12
-                bg-white
+                bg-white/80
+                backdrop-blur-sm
                 sticky
                 top-0
                 z-10

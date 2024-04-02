@@ -36,7 +36,7 @@ export default function Project({
         h-full
         gap-12
         px-[5%]
-        md:px-[20%]
+        md:px-[10%]
       "
     >
       <Box
