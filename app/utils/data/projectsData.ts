@@ -208,38 +208,6 @@ export const Projects = [
     ],
   },
   {
-    id: "swimmers-lounge",
-    path: "/swimmers-lounge",
-    title: "Swimmer's Lounge",
-    product: "Simborgarmärket",
-    client: "Simborgarmärket",
-    year: "2012",
-    role: "Art Director & Copywriter",
-    problem: "Simborgarmärket, a badge awarded by the Swedish Swimming Federation, to promote basic swimming skills, was losing its appeal and relevance.",
-    solution: "Put a cool swim club 200 meters off-shore.",
-    insight: "Trick people into swimming to reach a cool exclusive experience.",
-    audience: "Would-be swimmers.",
-    description: "",
-    hero: "/images/projects/heroes/swimmers-lounge.jpg",
-    images: [],
-    video: "https://www.youtube.com/embed/tGAIPd6kfa4?si=KMvtVB37vbqngd5M",
-    awards: [
-      {
-        award: "Winner",
-        category: "Media",
-        show: "Young Lions Sweden",
-        year: "2012"
-      },
-    ],
-    skills: [
-      "Art Direction",
-      "Copywriting",
-      "Creative Strategy",
-      "Video Production",
-      "Illustration",
-    ],
-  },
-  {
     id: "terminal-tours",
     path: "/terminal-tours",
     title: "Terminal Tours",
@@ -386,6 +354,38 @@ export const Projects = [
     skills: [
       "Art Direction",
       "Video Production",
+    ],
+  },
+  {
+    id: "swimmers-lounge",
+    path: "/swimmers-lounge",
+    title: "Swimmer's Lounge",
+    product: "Simborgarmärket",
+    client: "Simborgarmärket",
+    year: "2012",
+    role: "Art Director & Copywriter",
+    problem: "Simborgarmärket, a badge awarded by the Swedish Swimming Federation, to promote basic swimming skills, was losing its appeal and relevance.",
+    solution: "Put a cool swim club 200 meters off-shore.",
+    insight: "Trick people into swimming to reach a cool exclusive experience.",
+    audience: "Would-be swimmers.",
+    description: "",
+    hero: "/images/projects/heroes/swimmers-lounge.jpg",
+    images: [],
+    video: "https://www.youtube.com/embed/tGAIPd6kfa4?si=KMvtVB37vbqngd5M",
+    awards: [
+      {
+        award: "Winner",
+        category: "Media",
+        show: "Young Lions Sweden",
+        year: "2012"
+      },
+    ],
+    skills: [
+      "Art Direction",
+      "Copywriting",
+      "Creative Strategy",
+      "Video Production",
+      "Illustration",
     ],
   },
   {
