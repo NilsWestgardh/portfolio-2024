@@ -37,6 +37,7 @@ export default function Project({
         gap-12
         px-[5%]
         md:px-[10%]
+        max-w-screen-2xl
       "
     >
       <Box

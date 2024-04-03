@@ -31,6 +31,7 @@ export default function About() {
         px-[5%]
         md:px-[10%]
         gap-24
+        max-w-screen-xl
       "
     >
       <Box
