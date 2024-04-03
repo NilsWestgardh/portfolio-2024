@@ -18,6 +18,7 @@ export default function SkillsList() {
         w-full
         gap-1
         mt-4
+        max-w-screen-md
       "
     >
       {skillsData.map((
