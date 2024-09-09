@@ -27,3 +27,11 @@ export type Project = {
 };
 
 export type Projects = Project[];
+
+export type Skill = {
+  id?: number;
+  skill: string;
+  level: string;
+}
+
+export type Skills = Skill[];

@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 
 type ThumbnailProps = {
@@ -23,7 +22,7 @@ export default function Thumbnail({
   project 
 }: ThumbnailProps) {  return (
     <AspectRatio ratio={4 / 3}>
-      <Link href={project.path}>
+      <Link href={`/${project.id}`}>
         <Card
           className="
             relative 

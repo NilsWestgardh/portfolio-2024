@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 // Actions
-import { getProjects } from "@/app/server/actions";
+import { getAllProjects } from "@/app/server/actions";
 // Types
 import { Projects } from "@/app/lib/types/database";
 // Components
@@ -23,7 +23,7 @@ export default async function Gallery() {
   }
   
   async function ProjectList() {
-    const projects: Projects = await getProjects();
+    const projects: Projects = await getAllProjects();
     const sortedProjects = projects.sort((a, b) => b.year - a.year);
   
     return (

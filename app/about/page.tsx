@@ -1,17 +1,16 @@
 import React from "react";
+// Utils
 import Image from "next/image";
+// Actions
+import { getSkills } from "@/app/server/actions"
+//  Types
+import { Skills } from "@/app/lib/types/database";
+// Components
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Tooltip, TooltipProvider, TooltipTrigger, TooltipContent } from "@/components/ui/tooltip";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-
-const SkillsList = () => (
-  <div className="flex flex-wrap justify-center gap-2 mt-4">
-    {["Entrepreneur", "Art Director", "Copywriter", "Designer", "Web Developer", "Game Designer"].map((skill) => (
-      <Badge key={skill} variant="secondary">{skill}</Badge>
-    ))}
-  </div>
-);
 
 const calculateAge = (birthDate: string) => {
   const today = new Date();
@@ -24,17 +23,39 @@ const calculateAge = (birthDate: string) => {
   return age;
 };
 
-export default function About() {
+export default async function About() {
+  const skills: Skills = await getSkills();
+  
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <Card className="mb-8">
-        <CardHeader className="text-center">
-          <Avatar className="w-48 h-48 mx-auto mb-4">
-            <AvatarImage src="/images/nils.png" alt="Nils headshot" />
+        <CardHeader className="text-center gap-4">
+          <Avatar className="w-48 h-48 mx-auto">
+            <AvatarImage src="/nils.png" alt="Nils headshot" />
           </Avatar>
-          <h2 className="text-2xl font-bold">Nils Westgårdh</h2>
-          <p className="text-muted-foreground">Stockholm, Sweden • {calculateAge("1988-10-25")} yo</p>
-          <SkillsList />
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl font-medium">Nils Westgårdh</h2>
+            <p className="text-muted-foreground">Stockholm, Sweden • {calculateAge("1988-10-25")} yo</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-1 mt-4">
+            {skills.map((skill) => (
+              <TooltipProvider key={skill.id}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Badge
+                      variant="outline"
+                      className="rounded-full" 
+                    >
+                      {skill.skill}
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{skill.level}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            ))}
+          </div>
         </CardHeader>
       </Card>
 
