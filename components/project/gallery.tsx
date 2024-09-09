@@ -26,9 +26,19 @@ export default async function Gallery() {
     const projects: Projects = await getAllProjects();
     const sortedProjects = projects.sort((a, b) => b.year - a.year);
   
+    const excludedProjectIds = [
+      "semble",
+      "nordheim", 
+      "swimmers-lounge", 
+      "glow-mode", 
+      "taco-mode"
+    ];
+    
+    const filteredProjects = sortedProjects.filter(project => !excludedProjectIds.includes(project.id));
+  
     return (
       <>
-        {sortedProjects.map((project) => (
+        {filteredProjects.map((project) => (
           <Thumbnail key={project.id} project={project} />
         ))}
       </>

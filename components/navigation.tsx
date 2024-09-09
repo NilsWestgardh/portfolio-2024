@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 // Icons
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Navigation () {
   return (
@@ -83,6 +83,20 @@ export default function Navigation () {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center space-x-2">
+          
+          <Button
+            variant="ghost" 
+            size="icon" 
+            asChild
+          >
+            <a 
+              href="https://linkedin.com/in/nilswestgardh" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+          </Button>
           <Button
             variant="ghost" 
             size="icon" 
@@ -101,12 +115,12 @@ export default function Navigation () {
             size="icon" 
             asChild
           >
-            <a 
-              href="https://linkedin.com/in/nilswestgardh" 
+            <a
+              href="https://x.com/nilswestgardh" 
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <FaLinkedin className="h-5 w-5" />
+              <FaXTwitter className="h-5 w-5" />
             </a>
           </Button>
         </div>
