@@ -1,0 +1,21 @@
+export const metadataKeywords = [
+  "Nils Westgardh",
+  "Nils Westgårdh",
+  "Nils Westgardh Portfolio",
+  "Nils Westgardh Projects",
+  "Nils Westgardh Experience",
+  "Nils Westgardh Skills",
+  "Nils Westgardh Resume",
+  "Nils Westgardh CV",
+  "Nils Westgardh Contact",
+  "Nils Westgardh Email",
+  "Nils Westgardh Phone",
+  "Nils Westgardh LinkedIn",
+  "Nils Westgardh GitHub",
+  "Nils Westgardh Twitter",
+  "Nils Westgardh Instagram",
+  "Nils Westgardh Facebook",
+  "Nils Westgardh TikTok",
+  "Nils Westgardh YouTube",
+  "Nils Westgardh Website"
+]

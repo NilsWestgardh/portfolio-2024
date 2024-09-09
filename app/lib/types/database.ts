@@ -1,0 +1,29 @@
+type Award = {
+  award: string;
+  category: string;
+  show: string;
+  year: string;
+};
+
+export type Project = {
+  id: string;
+  path: string;
+  title: string;
+  product: string;
+  client: string;
+  year: number;
+  role: string;
+  problem: string;
+  solution: string;
+  insight: string;
+  audience: string;
+  description: string;
+  link?: string;
+  hero: string;
+  images: string[];
+  video: string;
+  awards: Award[];
+  skills: string[];
+};
+
+export type Projects = Project[];
