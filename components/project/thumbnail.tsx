@@ -24,7 +24,17 @@ export default function Thumbnail({
 }: ThumbnailProps) {  return (
     <AspectRatio ratio={4 / 3}>
       <Link href={project.path}>
-        <Card className="relative overflow-hidden w-full h-full group">
+        <Card
+          className="
+            relative 
+            overflow-hidden 
+            w-full 
+            h-full 
+            group 
+            border-none 
+            shadow-none
+          "
+        >
           <Image
             src={project.hero}
             alt={`${project.title} thumbnail`}

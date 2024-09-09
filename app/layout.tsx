@@ -11,6 +11,8 @@ import "@/app/lib/styles/globals.css";
 // Metadata
 import type { Metadata } from "next";
 import { metadataKeywords } from "@/app/lib/data/data"
+// Custom components
+import Navigation from "@/components/navigation";
 
 const PostHogPageView = dynamic(() => import('./PostHogPageView'), { ssr: false })
 const inter = Inter({ subsets: ["latin"] });
@@ -44,8 +46,16 @@ export default function RootLayout(
   const { children } = props;
 
   return (
-    <html lang="en" className={inter.className}>
-      <body className="bg-background text-foreground">
+    <html 
+      lang="en" 
+      className={inter.className}
+    >
+      <body
+        className="
+          bg-background 
+          text-foreground
+        "
+      >
         <PHProvider>
           <ThemeProvider
             attribute="class"
@@ -54,7 +64,18 @@ export default function RootLayout(
             disableTransitionOnChange
           >
             <PostHogPageView />
-            <main className="min-h-screen flex flex-col items-center">
+            <Navigation />
+            <main
+              className="
+                min-h-screen 
+                flex 
+                flex-col 
+                items-center 
+                gap-4
+                w-full
+                mt-20
+              "
+            >
               {children}
             </main>
             <Analytics />
