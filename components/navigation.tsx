@@ -81,6 +81,13 @@ export default function Navigation () {
                 </Button>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/resume">
+                <Button variant="ghost">
+                  Resume
+                </Button>
+              </Link>
+            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <div className="hidden md:flex items-center space-x-2">
