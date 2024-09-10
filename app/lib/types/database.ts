@@ -35,3 +35,12 @@ export type Skill = {
 }
 
 export type Skills = Skill[];
+
+export type Client = {
+  id?: number;
+  client: string;
+  logo: string;
+  url: string;
+}
+
+export type Clients = Client[];

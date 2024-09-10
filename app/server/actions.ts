@@ -2,7 +2,12 @@
 
 import { createClient } from "@/app/utils/supabase/server";
 import { cookies } from "next/headers";
-import { Project, Projects, Skills } from '@/app/lib/types/database'
+import { 
+  Project, 
+  Projects, 
+  Skills,
+  Clients, 
+} from '@/app/lib/types/database'
 
 export async function getAllProjects(): Promise<Projects> {
   const cookieStore = cookies();
@@ -67,6 +72,27 @@ export async function getSkills(): Promise<Skills> {
     return data as Skills
   } catch (error) {
     console.log("[Server] Error fetching skills: ", error)
+    return []
+  }
+}
+
+export async function getClients(): Promise<Clients> {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+
+  try {
+    const { data, error } = await supabase
+      .from('clients')
+      .select('*')
+
+    if (error) {
+      console.log("[Server] Error fetching clients. Response: ", error)
+      return []
+    }
+
+    return data as Clients
+  } catch (error) {
+    console.log("[Server] Error fetching clients: ", error)
     return []
   }
 }

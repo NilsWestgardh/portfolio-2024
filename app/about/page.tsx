@@ -1,8 +1,10 @@
 import React from "react";
 // Actions
-import { getSkills } from "@/app/server/actions"
+import { getSkills, getClients } from "@/app/server/actions"
 //  Types
-import { Skills } from "@/app/lib/types/database";
+import type { Skills, Client, Clients } from "@/app/lib/types/database";
+// Utils
+import Image from "next/image";
 // Components
 import { 
   Tooltip, 
@@ -18,6 +20,8 @@ import {
 } from "@/components/ui/tabs";
 import { 
   Card, 
+  CardTitle,
+  CardDescription,
   CardContent, 
   CardHeader 
 } from "@/components/ui/card";
@@ -42,6 +46,7 @@ const calculateAge = (birthDate: string) => {
 };
 
 export default async function About() {
+  const clients: Clients = await getClients();
   const skills: Skills = await getSkills();
 
   const marketingSkills = skills.filter(skill => 
@@ -72,7 +77,7 @@ export default async function About() {
         </CardHeader>
       </Card>
 
-      <Card className="px-1 pt-1">
+      <Card className="px-1 pt-1 mb-8">
         <Tabs defaultValue="marketer">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="marketer">Marketer Mode</TabsTrigger>
@@ -96,7 +101,10 @@ export default async function About() {
                 </div>
                 <Separator />
                 <p>
-                  With 10 years of experience in San Francisco, I've worked with big-name brands at AKQA and Lyft's in-house agency. My expertise spans from scrappy campaigns to nation-wide initiatives for clients like Activision Blizzard, NVIDIA, Audi, Levi's, Visa, Verizon, and Apple.
+                  With 10 years of experience in San Francisco,{" "}
+                  I've worked with big-name brands at AKQA and Lyft's in-house agency. 
+                  My expertise spans from scrappy campaigns to nation-wide initiatives{" "}
+                  for clients like Activision Blizzard, NVIDIA, Audi, Levi's, Visa, Verizon, and Apple.
                 </p>
               </CardContent>
           </TabsContent>
@@ -117,12 +125,54 @@ export default async function About() {
                 </div>
                 <Separator />
                 <p>
-                  After moving back to Sweden in 2020, I studied game design and started my own marketing agency, setting me on the path of entrepreneurship. I'm currently bootstrapping my second startup attempt, leveraging my diverse skill set in technology and creative problem-solving.
+                  After moving back to Sweden in 2020,{" "}
+                  I studied game design and started my own marketing agency,{" "}
+                  setting me on the path of entrepreneurship. 
+                  I'm currently bootstrapping my second startup attempt,{" "}
+                  leveraging my diverse skill set in technology and creative problem-solving.
                 </p>
               </CardContent>
           </TabsContent>
         </Tabs>
       </Card>
+
+      {clients && clients.length > 0 && (
+        <Card className="px-1 pt-1">
+          <CardContent className="space-y-4 pt-6">
+            <CardTitle>Clients</CardTitle>
+            <CardDescription>Companies I've had the pleasure to work with .</CardDescription>
+            <div className="grid w-full md:grid-cols-5 grid-cols-2 gap-4">
+              {clients.map(( client: Client ) => (
+                <a
+                  key={client.id}
+                  href={client.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="
+                    md:w-[96px]
+                    w-[60px]
+                    md:h-[96px]
+                    h-[60px]
+                    relative
+                    cursor-pointer
+                    hover:scale-95
+                    hover:opacity-80
+                    transition-all
+                    duration-300
+                  "
+                >   
+                  <Image
+                    src={client.logo}
+                    alt={`${client.client} logo`}
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </a>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       <Resume />
     </div>

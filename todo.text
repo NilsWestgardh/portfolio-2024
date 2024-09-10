@@ -1,13 +1,6 @@
-PAGES
-// [project]
-// about
-// contact
-// lib
-// utils
-
-UTILS
 opengraph-image
 twitter-image
-favicon
 dynamic SEO
-dynamic OG images
+dynamic OG images per project
+fetch / add client list
+add /add latest projects
