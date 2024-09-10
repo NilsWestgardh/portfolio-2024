@@ -83,7 +83,7 @@ export default function Navigation () {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center space-x-2">
+        <div className="hidden md:flex items-center space-x-2">
           <Button
             variant="ghost" 
             size="icon" 
