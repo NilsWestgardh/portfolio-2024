@@ -20,9 +20,13 @@ type ThumbnailProps = {
 
 export default function Thumbnail({ 
   project 
-}: ThumbnailProps) {  return (
+}: ThumbnailProps) {  
+
+  return (
     <AspectRatio ratio={4 / 3}>
-      <Link href={`/${project.id}`}>
+      <Link 
+        href={`/${project.id}`} 
+      >
         <Card
           className="
             relative 

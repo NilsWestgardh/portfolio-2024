@@ -6,17 +6,20 @@ import Image from "next/image";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 // Icons
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { 
+  FaGithub, 
+  FaLinkedin, 
+  FaXTwitter 
+} from "react-icons/fa6";
 // Logo
 import nwlogo from "@/public/nw_logo.svg";
 
 export default function Navigation () {
+
   return (
     <nav
       className="
@@ -88,7 +91,6 @@ export default function Navigation () {
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center space-x-2">
-          
           <Button
             variant="ghost" 
             size="icon" 
