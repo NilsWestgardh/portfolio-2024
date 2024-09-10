@@ -2,6 +2,8 @@ import React from "react";
 // Utils
 import Image from "next/image";
 import clsx from "clsx";
+// Metadata
+import { Metadata } from 'next'
 // Actions
 import { getProjectById } from "@/app/server/actions";
 // Types
