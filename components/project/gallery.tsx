@@ -55,6 +55,7 @@ export default async function Gallery() {
         lg:grid-cols-3 
         gap-4 
         w-full
+        mt-4
       "
     >
       <Suspense fallback={<SkeletonCards />}>

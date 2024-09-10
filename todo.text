@@ -2,5 +2,6 @@ opengraph-image
 twitter-image
 dynamic SEO
 dynamic OG images per project
-fetch / add client list
-add /add latest projects
+add latest projects: mc
+add robots.ts
+add sitemap.ts
