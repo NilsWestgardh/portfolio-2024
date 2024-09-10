@@ -40,6 +40,12 @@ export default async function Image({
     )
   }
 
+  const heroImageResponse = await fetch(project.hero)
+  const heroImageArrayBuffer = await heroImageResponse.arrayBuffer()
+  const heroImage = Buffer.from(heroImageArrayBuffer)
+  const heroImageBase64 = heroImage.toString('base64')
+  const heroImageDataUrl = `data:image/png;base64,${heroImageBase64}`
+
   return new ImageResponse(
     (
       <div
@@ -73,7 +79,7 @@ export default async function Image({
           justifyContent: 'center',
         }}>
           <img
-            src={project.hero}
+            src={heroImageDataUrl}
             alt={project.title}
             style={{
               maxWidth: '100%',
