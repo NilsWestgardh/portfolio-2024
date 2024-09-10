@@ -1,10 +1,11 @@
 import React from "react";
 // Providers
 import { ThemeProvider } from "@/app/lib/styles/theme-provider"
-import { Analytics } from "@vercel/analytics/react";
 import { PHProvider } from "@/app/providers";
 // Utils
 import dynamic from 'next/dynamic';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 // Styles
 import { Inter } from "next/font/google";
 import "@/app/lib/styles/globals.css";
@@ -78,6 +79,7 @@ export default function RootLayout(
             >
               {children}
             </main>
+            <SpeedInsights />
             <Analytics />
           </ThemeProvider>
         </PHProvider>
