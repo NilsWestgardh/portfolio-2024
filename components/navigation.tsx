@@ -81,13 +81,6 @@ export default function Navigation () {
                 </Button>
               </Link>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="/deal">
-                <Button variant="ghost">
-                  Deal
-                </Button>
-              </Link>
-            </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
         <div className="flex items-center space-x-2">
