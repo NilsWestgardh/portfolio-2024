@@ -15,9 +15,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+// TODO: Add metadata for this page
 
 export default function Deal() {
-
   return (
     <Card
       className="
@@ -67,7 +69,9 @@ export default function Deal() {
           </div>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
-          <h1 className="text-xl font-semibold">The greatest value is ones network</h1>
+          <h1 className="text-xl font-semibold">
+            The greatest value is ones network
+          </h1>
           <p>
             I'm a founder, who understands the value of a strong network (and a good deal).
             When it comes to startups, no network is more valuable than YC's.
@@ -84,6 +88,17 @@ export default function Deal() {
             </a>{" "}
             to claim the deal.
           </p>
+          <Separator className="my-4" />
+          <h2 className="text-lg font-medium">
+            I can help with:
+          </h2>
+          <ul className="list-disc list-inside">
+            <li className="ml-4">Copywriting & Marketing</li>
+            <li className="ml-4">Product & Graphic Design</li>
+            <li className="ml-4">Brand & Creative Strategy</li>
+            <li className="ml-4">Front-end & Junior Dev</li>
+            <li className="ml-4">Anything Gaming-related</li>
+          </ul>
         </CardContent>
       </div>
       <CardFooter>

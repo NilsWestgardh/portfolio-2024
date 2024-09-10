@@ -1,6 +1,7 @@
 import React from "react";
 // Utils
 import Link from "next/link";
+import Image from "next/image";
 // Components
 import {
   NavigationMenu,
@@ -12,6 +13,8 @@ import {
 import { Button } from "@/components/ui/button";
 // Icons
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+// Logo
+import nwlogo from "@/public/nw_logo.svg";
 
 export default function Navigation () {
   return (
@@ -43,41 +46,43 @@ export default function Navigation () {
           items-center
         "
       >
-        <Link href="/" className="text-xl font-bold">
-          Portfolio Logo
+        <Link href="/">
+          <Image
+            src={nwlogo}
+            alt="Nils Westgardh Logo"
+            width={60}
+            height={48}
+            className="cursor-pointer"
+          />
         </Link>
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink 
-                  className={navigationMenuTriggerStyle()}
-                >
+              <Link href="/">
+                <Button variant="ghost">
                   Projects
-                </NavigationMenuLink>
+                </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" legacyBehavior passHref>
-                <NavigationMenuLink 
-                  className={navigationMenuTriggerStyle()}
-                >
+              <Link href="/about">
+                <Button variant="ghost">
                   About
-                </NavigationMenuLink>
+                </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link
-                href="/connect" 
-                legacyBehavior 
-                passHref
-              >
-                {/* Replace with button */}
-                <NavigationMenuLink
-                  className={navigationMenuTriggerStyle()}
-                >
+              <Link href="/connect">
+                <Button variant="ghost">
                   Connect
-                </NavigationMenuLink>
+                </Button>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/deal">
+                <Button variant="ghost">
+                  Deal
+                </Button>
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>

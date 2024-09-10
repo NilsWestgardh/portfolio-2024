@@ -16,8 +16,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-// Custom components
-import Gallery from "@/components/project/gallery";
 
 export default async function Project({ 
   params 
