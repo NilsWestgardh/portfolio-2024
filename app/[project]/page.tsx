@@ -2,8 +2,6 @@ import React from "react";
 // Utils
 import Image from "next/image";
 import clsx from "clsx";
-// Metadata
-import { Metadata } from 'next'
 // Actions
 import { getProjectById } from "@/app/server/actions";
 // Types
@@ -18,6 +16,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+// Icons
+import { MdOpenInNew } from "react-icons/md";
 
 export default async function Project({ 
   params 
@@ -41,13 +41,25 @@ export default async function Project({
           mb-16
         "
       >
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold">{projectData.title}</CardTitle>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>{projectData.client}</span>
-            <span>•</span>
-            <span>{projectData.year}</span>
+        <CardHeader className="flex flex-row justify-between w-full">
+          <div className="flex flex-col justify-start items-start w-full">
+            <CardTitle className="text-3xl font-bold">{projectData.title}</CardTitle>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span>{projectData.client}</span>
+              <span>•</span>
+              <span>{projectData.year}</span>
+            </div>
           </div>
+          {projectData.link && (
+            <div className="flex justify-end">
+              <Button variant="outline" asChild className="flex justify-center items-center gap-2">
+                <a href={projectData.link} target="_blank" rel="noopener noreferrer">
+                  View Project
+                  <MdOpenInNew />
+                </a>
+              </Button>
+            </div>
+          )}
         </CardHeader>
         <CardContent className="space-y-6">
           {projectData.hero && (
@@ -92,14 +104,6 @@ export default async function Project({
               </div>
             )}
           </div>
-
-          {projectData.link && (
-            <Button variant="outline" asChild className="w-full">
-              <a href={projectData.link} target="_blank" rel="noopener noreferrer">
-                View Project
-              </a>
-            </Button>
-          )}
 
           {projectData.awards && projectData.awards.length > 0 && (
             <div>

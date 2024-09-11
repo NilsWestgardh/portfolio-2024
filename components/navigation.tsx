@@ -25,8 +25,9 @@ export default function Navigation () {
       className="
         w-full 
         flex 
-        bg-background/50 
-        backdrop-blur-sm
+        bg-background
+        md:bg-background/50 
+        md:backdrop-blur-sm
         border-b
         border-zinc-500/20 
         fixed 
