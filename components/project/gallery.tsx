@@ -27,7 +27,6 @@ export default async function Gallery() {
     const sortedProjects = projects.sort((a, b) => b.year - a.year);
   
     const excludedProjectIds = [
-      "semble",
       "nordheim", 
       "swimmers-lounge", 
       "glow-mode", 
