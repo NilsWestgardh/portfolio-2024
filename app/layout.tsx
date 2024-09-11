@@ -17,8 +17,8 @@ import Navigation from "@/components/navigation";
 
 const PostHogPageView = dynamic(() => import('./PostHogPageView'), { ssr: false })
 const inter = Inter({ subsets: ["latin"] });
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
+const defaultUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
   : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
