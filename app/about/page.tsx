@@ -92,11 +92,16 @@ export default async function About() {
             <AvatarImage src="/nils.png" alt="Nils headshot" />
           </Avatar>
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-medium">Nils Westgårdh</h2>
-            <p className="text-muted-foreground">Stockholm, Sweden • {calculateAge("1988-10-25")} yo</p>
+            <h2 className="text-2xl font-medium">
+              Nils Westgårdh
+            </h2>
+            <p className="text-muted-foreground">
+              Stockholm, Sweden • {calculateAge("1988-10-25")} yo
+            </p>
           </div>
           <h1 className="text-lg font-medium max-w-xl mx-auto mb-4">
-            I'm an ever-curious techno-optimistic Swedish army-knife, with a passion for gaming, and knack for creative problem-solving.
+            I'm an ever-curious techno-optimistic Swedish army-knife,{" "}
+            with a passion for gaming, and knack for creative problem-solving.
           </h1>
         </CardHeader>
       </Card>
@@ -110,7 +115,9 @@ export default async function About() {
           <TabsContent value="marketer">
             
               <CardContent className="space-y-4 pt-6">
-                <h3 className="text-xl font-semibold">Experienced Creative Marketer</h3>
+                <h3 className="text-xl font-semibold">
+                  Experienced Creative Marketer
+                </h3>
                 <div className="flex flex-wrap gap-1">
                   {marketingSkills.map((skill) => (
                     <TooltipProvider key={skill.id}>
@@ -123,18 +130,21 @@ export default async function About() {
                     </TooltipProvider>
                   ))}
                 </div>
-                <Separator />
+                <Separator className="my-4" />
                 <p>
                   With 10 years of experience in San Francisco,{" "}
                   I've worked with big-name brands at AKQA and Lyft's in-house agency. 
-                  My expertise spans from scrappy campaigns to nation-wide initiatives{" "}
-                  for clients like Activision Blizzard, NVIDIA, Audi, Levi's, Visa, Verizon, and Apple.
+                  My expertise spans from scrappy campaigns to nation-wide initiatives.
+                  I like to craft and execute campaigns end-to-end. From strategy to delivery.
+                  I've also helped win several new business pitches.
                 </p>
               </CardContent>
           </TabsContent>
           <TabsContent value="founder">
               <CardContent className="space-y-4 pt-6">
-                <h3 className="text-xl font-semibold">Aspiring Tech Entrepreneur</h3>
+                <h3 className="text-xl font-semibold">
+                  Aspiring Tech Founder
+                </h3>
                 <div className="flex flex-wrap gap-1">
                   {founderSkills.map((skill) => (
                     <TooltipProvider key={skill.id}>
@@ -147,13 +157,13 @@ export default async function About() {
                     </TooltipProvider>
                   ))}
                 </div>
-                <Separator />
+                <Separator className="my-4" />
                 <p>
-                  After moving back to Sweden in 2020,{" "}
-                  I studied game design and started my own marketing agency,{" "}
-                  setting me on the path of entrepreneurship. 
-                  I'm currently bootstrapping my second startup attempt,{" "}
-                  leveraging my diverse skill set in technology and creative problem-solving.
+                  After moving back to Sweden in 2020, I briefly studied game design before{" "}
+                  starting my own marketing agency, setting me on the path of entrepreneurship.{" "}
+                  In 2022 I founded Semble, a talent marketplace for game devs, which lasted a year.
+                  After that, I started to learn to code, and in early 2024 I launched a web app for{" "}
+                  Nexus TCG, the AI-powered digital card game I'm building.
                 </p>
               </CardContent>
           </TabsContent>
