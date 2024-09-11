@@ -24,13 +24,13 @@ type Award = {
 
 const jobExperiences: JobExperience[] = [
   {
-    title: "Founder, CEO & Game Designer",
+    title: "Founder",
     company: "Nexus TCG",
     date: "2024 - present",
-    description: "Building a digital trading card game where players can create custom cards using AI technology.",
+    description: "Nexus TCG is a digital trading card game where players can create their own cards with the help of AI.",
   },
   {
-    title: "Founder & CEO",
+    title: "Co-founder & CEO",
     company: "Semble.gg",
     date: "2022 - 2023",
     description: "Founded a startup building a community and talent marketplace for the game industry. Led product design, marketing, go-to-market strategy, and investor relations.",

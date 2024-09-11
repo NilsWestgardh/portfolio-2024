@@ -50,14 +50,38 @@ export default async function About() {
   const skills: Skills = await getSkills();
 
   const marketingSkills = skills.filter(skill => 
-    ["Art Direction", "Copywriting", "Design", "Photoshop", "Creative Direction", 
-     "Creative Strategy", "Illustrator", "Community Management", "Presentation", 
-     "Figma", "After Effects", "Illustration"].includes(skill.skill)
+    [
+      "Creative Direction",
+      "Creative Strategy",
+      "Art Direction",
+      "Copywriting",
+      "Photoshop",
+      "Presentation",
+      "Adobe Suite",
+      "Graphic Design",
+      "Community Management",
+    ].includes(skill.skill)
   );
   
   const founderSkills = skills.filter(skill => 
-    ["Entrepreneurship", "React", "TypeScript", "Tailwind CSS", "Supabase", 
-     "Game Design", "Unity", "Blender", "C#"].includes(skill.skill)
+    [
+      "Generative AI",
+      "Figma",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "shadcn/ui",
+      "Tailwind CSS",
+      "Copywriting",
+      "Supabase",
+      "Presentation",
+      "Game Design",
+      "Graphic Design",
+      "Community Management",
+      "Unity",
+      "Blender",
+      "C#"
+    ].includes(skill.skill)
   );
 
   return (
@@ -140,8 +164,8 @@ export default async function About() {
         <Card className="px-1 pt-1">
           <CardContent className="space-y-4 pt-6">
             <CardTitle>Clients</CardTitle>
-            <CardDescription>Companies I've had the pleasure to work with .</CardDescription>
-            <div className="grid w-full md:grid-cols-5 grid-cols-2 gap-4">
+            <CardDescription>Companies I've had the pleasure to work with.</CardDescription>
+            <div className="grid w-full md:grid-cols-5 grid-cols-3 md:gap-4 gap-2">
               {clients.map(( client: Client ) => (
                 <a
                   key={client.id}
