@@ -15,7 +15,7 @@ export async function getAllProjects(): Promise<Projects> {
 
   try {
     const { data, error } = await supabase
-      .from('projects')
+      .from('nils_projects')
       .select('*')
     
     if (error) {
@@ -38,7 +38,7 @@ export async function getProjectById(
 
   try {
     const { data, error } = await supabase
-      .from('projects')
+      .from('nils_projects')
       .select('*')
       .eq('id', projectId)
       .single()
@@ -61,7 +61,7 @@ export async function getSkills(): Promise<Skills> {
 
   try {
     const { data, error } = await supabase
-      .from('skills')
+      .from('nils_skills')
       .select('*')
 
     if (error) {
@@ -82,7 +82,7 @@ export async function getClients(): Promise<Clients> {
 
   try {
     const { data, error } = await supabase
-      .from('clients')
+      .from('nils_clients')
       .select('*')
 
     if (error) {
