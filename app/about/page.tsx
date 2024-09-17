@@ -74,6 +74,7 @@ export default async function About() {
       "Tailwind CSS",
       "Copywriting",
       "Supabase",
+      "PostHog",
       "Presentation",
       "Game Design",
       "Graphic Design",
