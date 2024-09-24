@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import clsx from "clsx";
 // Actions
-import { getProjectById } from "@/app/server/actions";
+import { getProjectById, getAllProjects } from "@/app/server/actions";
 // Types
 import type { Project, Award } from "@/app/lib/types/database";
 // Components
@@ -18,6 +18,15 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 // Icons
 import { MdOpenInNew } from "react-icons/md";
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const projects = await getAllProjects();
+  return projects.map((project) => ({
+    project: project.id,
+  }));
+}
 
 export default async function Project({ 
   params 

@@ -50,7 +50,7 @@ export default function Navigation () {
           items-center
         "
       >
-        <Link href="/">
+        <Link href="/" prefetch>
           <Image
             src={nwlogo}
             alt="Nils Westgardh Logo"
@@ -62,21 +62,21 @@ export default function Navigation () {
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/">
+              <Link href="/" prefetch>
                 <Button variant="ghost">
                   Projects
                 </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about">
+              <Link href="/about" prefetch>
                 <Button variant="ghost">
                   About
                 </Button>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/connect">
+              <Link href="/connect" prefetch>
                 <Button variant="ghost">
                   Connect
                 </Button>
