@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 // Utils
 import { unstable_cache } from 'next/cache';
 import { cookies } from "next/headers";
@@ -18,6 +18,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
 // Icons
 import { MdOpenInNew } from "react-icons/md";
 
@@ -196,14 +197,28 @@ export default async function Project({
           {projectData.images && projectData.images.length > 0 && (
             <div className="grid grid-cols-2 gap-4">
               {projectData.images.map((image, index) => (
-                <Image
-                  key={index}
-                  src={image}
-                  alt={`Project image ${index + 1}`}
-                  width={600}
-                  height={400}
-                  className="w-full rounded-lg object-cover"
-                />
+                <Suspense 
+                  key={index} 
+                  fallback={
+                    <Skeleton 
+                      className="
+                        w-full 
+                        max-w-[600px] 
+                        h-full 
+                        max-h-[400px] 
+                        rounded-lg
+                      " 
+                    />
+                  }
+                >
+                  <Image
+                    src={image}
+                    alt={`Project image ${index + 1}`}
+                    width={600}
+                    height={400}
+                    className="w-full rounded-lg object-cover"
+                  />
+                </Suspense>
               ))}
             </div>
           )}
