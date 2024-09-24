@@ -1,4 +1,6 @@
 import React, { Suspense } from "react";
+// Utils
+import { unstable_cache } from 'next/cache';
 // Actions
 import { getAllProjects } from "@/app/server/actions";
 // Types
@@ -21,9 +23,15 @@ export default async function Gallery() {
       </>
     );
   }
+
+  const cachedGetAllProjects = unstable_cache(
+    async () => getAllProjects(),
+    ['all-projects'],
+    { revalidate: 60 }
+  );
   
   async function ProjectList() {
-    const projects: Projects = await getAllProjects();
+    const projects: Projects = await cachedGetAllProjects();
     const sortedProjects = projects.sort((a, b) => b.year - a.year);
   
     const excludedProjectIds = [
@@ -33,7 +41,8 @@ export default async function Gallery() {
       "taco-mode"
     ];
     
-    const filteredProjects = sortedProjects.filter(project => !excludedProjectIds.includes(project.id));
+    const filteredProjects = sortedProjects
+      .filter(project => !excludedProjectIds.includes(project.id));
   
     return (
       <>

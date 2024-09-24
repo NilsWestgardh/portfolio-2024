@@ -1,9 +1,10 @@
 import React from "react";
 // Utils
+import { unstable_cache } from 'next/cache';
 import Image from "next/image";
 import clsx from "clsx";
 // Actions
-import { getProjectById, getAllProjects } from "@/app/server/actions";
+import { getProjectById } from "@/app/server/actions";
 // Types
 import type { Project, Award } from "@/app/lib/types/database";
 // Components
@@ -24,7 +25,13 @@ export default async function Project({
 }: { 
   params: { project: string } 
 }) {
-  const projectData: Project | null = await getProjectById(params.project);
+  const cachedGetProjectById = unstable_cache(
+    async (id: string) => getProjectById(id),
+    ['project'],
+    { revalidate: 60 }
+  );
+
+  const projectData: Project | null = await cachedGetProjectById(params.project);
 
   if (!projectData) return null;
 

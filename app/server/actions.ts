@@ -23,8 +23,6 @@ export async function getAllProjects(): Promise<Projects> {
       return []
     }
 
-    cookies().set('Cache-Control', 's-maxage=60, stale-while-revalidate');
-
     return data as Projects
   } catch (error) {
     console.log("[Server] Error fetching projects:", error)
@@ -50,8 +48,6 @@ export async function getProjectById(
       return null
     }
 
-    cookies().set('Cache-Control', 's-maxage=60, stale-while-revalidate');
-
     return data as Project
   } catch (error) {
     console.log(`[Server] Error fetching project ${projectId}:`, error)
@@ -73,8 +69,6 @@ export async function getSkills(): Promise<Skills> {
       return []
     }
 
-    cookies().set('Cache-Control', 's-maxage=60, stale-while-revalidate');
-
     return data as Skills
   } catch (error) {
     console.log("[Server] Error fetching skills: ", error)
@@ -95,8 +89,6 @@ export async function getClients(): Promise<Clients> {
       console.log("[Server] Error fetching clients. Response: ", error)
       return []
     }
-
-    cookies().set('Cache-Control', 's-maxage=60, stale-while-revalidate');
 
     return data as Clients
   } catch (error) {
