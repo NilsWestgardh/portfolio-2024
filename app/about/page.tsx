@@ -1,10 +1,11 @@
 import React from "react";
+// Utils
+import Image from "next/image";
+import { cookies } from "next/headers";
 // Actions
 import { getSkills, getClients } from "@/app/server/actions"
 //  Types
 import type { Skills, Client, Clients } from "@/app/lib/types/database";
-// Utils
-import Image from "next/image";
 // Components
 import { 
   Tooltip, 
@@ -46,8 +47,10 @@ const calculateAge = (birthDate: string) => {
 };
 
 export default async function About() {
-  const clients: Clients = await getClients();
-  const skills: Skills = await getSkills();
+  const cookieStore = cookies();
+
+  const clients: Clients = await getClients(cookieStore);
+  const skills: Skills = await getSkills(cookieStore);
 
   const marketingSkills = skills.filter(skill => 
     [

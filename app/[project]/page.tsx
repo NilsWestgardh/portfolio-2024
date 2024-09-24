@@ -1,6 +1,7 @@
 import React from "react";
 // Utils
 import { unstable_cache } from 'next/cache';
+import { cookies } from "next/headers";
 import Image from "next/image";
 import clsx from "clsx";
 // Actions
@@ -25,8 +26,10 @@ export default async function Project({
 }: { 
   params: { project: string } 
 }) {
+  const cookieStore = cookies();
+
   const cachedGetProjectById = unstable_cache(
-    async (id: string) => getProjectById(id),
+    async (id: string) => getProjectById(cookieStore, id),
     ['project'],
     { revalidate: 60 }
   );

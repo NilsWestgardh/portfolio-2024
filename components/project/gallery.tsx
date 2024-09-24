@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 // Utils
 import { unstable_cache } from 'next/cache';
+import { cookies } from "next/headers";
 // Actions
 import { getAllProjects } from "@/app/server/actions";
 // Types
@@ -24,8 +25,10 @@ export default async function Gallery() {
     );
   }
 
+  const cookieStore = cookies();
+
   const cachedGetAllProjects = unstable_cache(
-    async () => getAllProjects(),
+    async () => getAllProjects(cookieStore),
     ['all-projects'],
     { revalidate: 60 }
   );

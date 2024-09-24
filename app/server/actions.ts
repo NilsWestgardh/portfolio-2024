@@ -9,8 +9,9 @@ import {
   Clients, 
 } from '@/app/lib/types/database'
 
-export async function getAllProjects(): Promise<Projects> {
-  const cookieStore = cookies();
+export async function getAllProjects(
+  cookieStore: ReturnType<typeof cookies>
+): Promise<Projects> {
   const supabase = createClient(cookieStore);
 
   try {
@@ -31,9 +32,9 @@ export async function getAllProjects(): Promise<Projects> {
 }
 
 export async function getProjectById(
+  cookieStore: ReturnType<typeof cookies>,
   projectId: string
 ): Promise<Project | null> {
-  const cookieStore = cookies();
   const supabase = createClient(cookieStore);
 
   try {
@@ -55,8 +56,9 @@ export async function getProjectById(
   }
 }
 
-export async function getSkills(): Promise<Skills> {
-  const cookieStore = cookies();
+export async function getSkills(
+  cookieStore: ReturnType<typeof cookies>,
+): Promise<Skills> {
   const supabase = createClient(cookieStore);
 
   try {
@@ -76,8 +78,9 @@ export async function getSkills(): Promise<Skills> {
   }
 }
 
-export async function getClients(): Promise<Clients> {
-  const cookieStore = cookies();
+export async function getClients(
+  cookieStore: ReturnType<typeof cookies>,
+): Promise<Clients> {
   const supabase = createClient(cookieStore);
 
   try {
