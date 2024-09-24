@@ -1,11 +1,14 @@
 import { getAllProjects } from "@/app/server/actions";
 import { MetadataRoute } from 'next'
+import { cookies } from 'next/headers'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   
+  const cookieStore = cookies();
+
   // Get all projects
-  const projects = await getAllProjects();
+  const projects = await getAllProjects(cookieStore);
 
   // Create project URLs
   const projectUrls = projects.map((project) => ({
