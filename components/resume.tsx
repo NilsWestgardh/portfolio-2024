@@ -36,6 +36,12 @@ const jobExperiences: JobExperience[] = [
     description: "Founded a startup building a community and talent marketplace for the game industry. Led product design, marketing, go-to-market strategy, and investor relations.",
   },
   {
+    title: "Creative Director & Founder",
+    company: "Bee Bee Bee",
+    date: "2021 - 2022",
+    description: "I provided freelance advertising creative and strategy for brands like Klarna, Amazon Prime Video, and others.",
+  },
+  {
     title: "Senior Art Director",
     company: "Lyft",
     date: "2017 - 2020",
