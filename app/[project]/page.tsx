@@ -19,15 +19,6 @@ import { Separator } from "@/components/ui/separator";
 // Icons
 import { MdOpenInNew } from "react-icons/md";
 
-export const revalidate = 60;
-
-export async function generateStaticParams() {
-  const projects = await getAllProjects();
-  return projects.map((project) => ({
-    project: project.id,
-  }));
-}
-
 export default async function Project({ 
   params 
 }: { 
