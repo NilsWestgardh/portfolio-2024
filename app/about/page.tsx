@@ -22,12 +22,14 @@ import {
   CardContent,
   CardHeader,
 } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 // Custom components
 const Resume = dynamic(() => import("@/components/resume"), {
-  ssr: false,
+  loading: () => <Skeleton className="w-full h-[600px]" />,
+  ssr: false
 });
 
 const calculateAge = (birthDate: string) => {

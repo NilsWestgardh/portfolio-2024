@@ -1,32 +1,36 @@
-import React from "react";
+import React, { Suspense } from "react";
 // Utils
 import Link from "next/link";
 import Image from "next/image";
 // Types
 import { Project } from "@/app/lib/types/database";
 // Components
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 
-type ThumbnailProps = {
-  project: Project;
+function ThumbnailSkeleton() {
+  return (
+    <>
+      {[...Array(6)].map((_, i) => (
+        <AspectRatio key={i} ratio={4 / 3}>
+          <Skeleton className="w-full h-full" />
+        </AspectRatio>
+      ))}
+    </>
+  );
 }
 
-export default function Thumbnail({ 
-  project 
-}: ThumbnailProps) {  
+type ThumbnailProps = {
+  project: Project;
+  priority?: boolean;
+};
 
+function ThumbnailContent({ project, priority = false }: ThumbnailProps) {
   return (
     <AspectRatio ratio={4 / 3}>
-      <Link 
-        href={`/${project.id}`} 
-      >
+      <Link href={`/${project.id}`}>
         <Card
           className="
             relative 
@@ -41,7 +45,9 @@ export default function Thumbnail({
           <Image
             src={project.hero}
             alt={`${project.title} thumbnail`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             fill
+            priority={priority}
             style={{ objectFit: "cover" }}
           />
           <div
@@ -67,14 +73,14 @@ export default function Thumbnail({
                     {project.title}
                   </CardTitle>
                   <small className="text-white/80">
-                    {`${project.client} – ${project.year}`}
+                    {`${project.client} - ${project.year}`}
                   </small>
                 </div>
                 {project.skills && (
                   <div className="flex flex-wrap gap-1 mt-2">
                     {project.skills.slice(0, 5).map((tech) => (
                       <Badge
-                        key={tech} 
+                        key={tech}
                         variant="secondary"
                         className="rounded-full"
                       >
@@ -89,5 +95,16 @@ export default function Thumbnail({
         </Card>
       </Link>
     </AspectRatio>
-  )
+  );
+}
+
+export default function Thumbnail({
+  project,
+  priority = false,
+}: ThumbnailProps) {
+  return (
+    <Suspense fallback={<ThumbnailSkeleton />}>
+      <ThumbnailContent project={project} priority={priority} />
+    </Suspense>
+  );
 }

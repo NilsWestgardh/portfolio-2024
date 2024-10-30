@@ -12,16 +12,24 @@ import {
 export async function getAllProjects(
   cookieStore: ReturnType<typeof cookies>
 ): Promise<Projects> {
+  console.log("[Server] Starting getAllProjects function")
+
   const supabase = createClient(cookieStore);
 
   try {
     const { data, error } = await supabase
       .from('nils_projects')
-      .select('*')
+      .select()
+      .not('id', 'in', '(nordheim,swimmers-lounge,glow-mode,taco-mode)')
     
     if (error) {
       console.log("[Server] Error fetching projects. Response:", error)
       return []
+    }
+
+    console.log("[Server] Projects fetched:", data.length)
+    if (data.length > 0) {
+      console.log("[Server] Projects fetched (sample):", JSON.stringify(data[0], null, 2))
     }
 
     return data as Projects

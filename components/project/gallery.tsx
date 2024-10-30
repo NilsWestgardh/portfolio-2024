@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 // Utils
 import { unstable_cache } from "next/cache";
 import { cookies } from "next/headers";
@@ -6,29 +6,16 @@ import dynamic from "next/dynamic";
 // Actions
 import { getAllProjects } from "@/app/server/actions";
 // Types
-import { Projects } from "@/app/lib/types/database";
-// Components
-import { Skeleton } from "@/components/ui/skeleton";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Project, Projects } from "@/app/lib/types/database";
 // Custom components
 const Thumbnail = dynamic(() => import("@/components/project/thumbnail"), {
-  ssr: false,
+  loading: () => null,
 });
 
 export default async function Gallery() {
-  function SkeletonCards() {
-    return (
-      <>
-        {[...Array(6)].map((_, i) => (
-          <AspectRatio key={i} ratio={4 / 3}>
-            <Skeleton className="w-full h-full" />
-          </AspectRatio>
-        ))}
-      </>
-    );
-  }
-
   const cookieStore = cookies();
+
+  console.log("I'm firing");
 
   const cachedGetAllProjects = unstable_cache(
     async () => getAllProjects(cookieStore),
@@ -36,29 +23,13 @@ export default async function Gallery() {
     { revalidate: 60 }
   );
 
-  async function ProjectList() {
-    const projects: Projects = await cachedGetAllProjects();
-    const sortedProjects = projects.sort((a, b) => b.year - a.year);
+  console.log("I'm firing 2");
 
-    const excludedProjectIds = [
-      "nordheim",
-      "swimmers-lounge",
-      "glow-mode",
-      "taco-mode",
-    ];
+  const projects: Projects = await cachedGetAllProjects();
 
-    const filteredProjects = sortedProjects.filter(
-      (project) => !excludedProjectIds.includes(project.id)
-    );
+  console.log("Projects fetched (client):", projects);
 
-    return (
-      <>
-        {filteredProjects.map((project) => (
-          <Thumbnail key={project.id} project={project} />
-        ))}
-      </>
-    );
-  }
+  console.log("I'm firing 3");
 
   return (
     <div
@@ -73,9 +44,9 @@ export default async function Gallery() {
         mt-4
       "
     >
-      <Suspense fallback={<SkeletonCards />}>
-        <ProjectList />
-      </Suspense>
+      {projects.map((project: Project, index: number) => (
+        <Thumbnail key={project.id} project={project} priority={index < 6} />
+      ))}
     </div>
   );
 }
