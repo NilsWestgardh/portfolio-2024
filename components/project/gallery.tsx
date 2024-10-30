@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
 // Utils
-import { unstable_cache } from 'next/cache';
+import { unstable_cache } from "next/cache";
 import { cookies } from "next/headers";
+import dynamic from "next/dynamic";
 // Actions
 import { getAllProjects } from "@/app/server/actions";
 // Types
@@ -10,7 +11,9 @@ import { Projects } from "@/app/lib/types/database";
 import { Skeleton } from "@/components/ui/skeleton";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 // Custom components
-import Thumbnail from "@/components/project/thumbnail";
+const Thumbnail = dynamic(() => import("@/components/project/thumbnail"), {
+  ssr: false,
+});
 
 export default async function Gallery() {
   function SkeletonCards() {
@@ -29,24 +32,25 @@ export default async function Gallery() {
 
   const cachedGetAllProjects = unstable_cache(
     async () => getAllProjects(cookieStore),
-    ['all-projects'],
+    ["all-projects"],
     { revalidate: 60 }
   );
-  
+
   async function ProjectList() {
     const projects: Projects = await cachedGetAllProjects();
     const sortedProjects = projects.sort((a, b) => b.year - a.year);
-  
+
     const excludedProjectIds = [
-      "nordheim", 
-      "swimmers-lounge", 
-      "glow-mode", 
-      "taco-mode"
+      "nordheim",
+      "swimmers-lounge",
+      "glow-mode",
+      "taco-mode",
     ];
-    
-    const filteredProjects = sortedProjects
-      .filter(project => !excludedProjectIds.includes(project.id));
-  
+
+    const filteredProjects = sortedProjects.filter(
+      (project) => !excludedProjectIds.includes(project.id)
+    );
+
     return (
       <>
         {filteredProjects.map((project) => (
@@ -73,5 +77,5 @@ export default async function Gallery() {
         <ProjectList />
       </Suspense>
     </div>
-  )
+  );
 }

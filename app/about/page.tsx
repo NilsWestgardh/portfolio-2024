@@ -1,39 +1,34 @@
 import React from "react";
 // Utils
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { cookies } from "next/headers";
 // Actions
-import { getSkills, getClients } from "@/app/server/actions"
+import { getSkills, getClients } from "@/app/server/actions";
 //  Types
 import type { Skills, Client, Clients } from "@/app/lib/types/database";
 // Components
-import { 
-  Tooltip, 
-  TooltipProvider, 
-  TooltipTrigger, 
-  TooltipContent 
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
 } from "@/components/ui/tooltip";
-import { 
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger 
-} from "@/components/ui/tabs";
-import { 
-  Card, 
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Card,
   CardTitle,
   CardDescription,
-  CardContent, 
-  CardHeader 
+  CardContent,
+  CardHeader,
 } from "@/components/ui/card";
-import { 
-  Avatar, 
-  AvatarImage 
-} from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 // Custom components
-import Resume from "@/components/resume";
+const Resume = dynamic(() => import("@/components/resume"), {
+  ssr: false,
+});
 
 const calculateAge = (birthDate: string) => {
   const today = new Date();
@@ -52,7 +47,7 @@ export default async function About() {
   const clients: Clients = await getClients(cookieStore);
   const skills: Skills = await getSkills(cookieStore);
 
-  const marketingSkills = skills.filter(skill => 
+  const marketingSkills = skills.filter((skill) =>
     [
       "Creative Direction",
       "Creative Strategy",
@@ -65,8 +60,8 @@ export default async function About() {
       "Community Management",
     ].includes(skill.skill)
   );
-  
-  const founderSkills = skills.filter(skill => 
+
+  const founderSkills = skills.filter((skill) =>
     [
       "Generative AI",
       "Figma",
@@ -84,7 +79,7 @@ export default async function About() {
       "Community Management",
       "Unity",
       "Blender",
-      "C#"
+      "C#",
     ].includes(skill.skill)
   );
 
@@ -96,16 +91,14 @@ export default async function About() {
             <AvatarImage src="/nils.png" alt="Nils headshot" />
           </Avatar>
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl font-medium">
-              Nils Westgårdh
-            </h2>
+            <h2 className="text-2xl font-medium">Nils Westgårdh</h2>
             <p className="text-muted-foreground">
               Stockholm, Sweden • {calculateAge("1988-10-25")} yo
             </p>
           </div>
           <h1 className="text-lg font-medium max-w-xl mx-auto mb-4">
-            I'm an ever-curious techno-optimistic Swedish army-knife,{" "}
-            with a passion for gaming, and knack for creative problem-solving.
+            I'm an ever-curious techno-optimistic Swedish army-knife, with a
+            passion for gaming, and knack for creative problem-solving.
           </h1>
         </CardHeader>
       </Card>
@@ -117,59 +110,65 @@ export default async function About() {
             <TabsTrigger value="founder">Founder Mode</TabsTrigger>
           </TabsList>
           <TabsContent value="marketer">
-            
-              <CardContent className="space-y-4 pt-6">
-                <h3 className="text-xl font-semibold">
-                  Experienced Creative Marketer
-                </h3>
-                <div className="flex flex-wrap gap-1">
-                  {marketingSkills.map((skill) => (
-                    <TooltipProvider key={skill.id}>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <Badge variant="outline" className="rounded-full">{skill.skill}</Badge>
-                        </TooltipTrigger>
-                        <TooltipContent><p>{skill.level}</p></TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  ))}
-                </div>
-                <Separator className="my-4" />
-                <p>
-                  With 10 years of experience in San Francisco,{" "}
-                  I've worked with big-name brands at AKQA and Lyft's in-house agency. 
-                  My expertise spans from scrappy campaigns to nation-wide initiatives.
-                  I like to craft and execute campaigns end-to-end. From strategy to delivery.
-                  I've also helped win several new business pitches.
-                </p>
-              </CardContent>
+            <CardContent className="space-y-4 pt-6">
+              <h3 className="text-xl font-semibold">
+                Experienced Creative Marketer
+              </h3>
+              <div className="flex flex-wrap gap-1">
+                {marketingSkills.map((skill) => (
+                  <TooltipProvider key={skill.id}>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Badge variant="outline" className="rounded-full">
+                          {skill.skill}
+                        </Badge>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{skill.level}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+              <Separator className="my-4" />
+              <p>
+                With 10 years of experience in San Francisco, I've worked with
+                big-name brands at AKQA and Lyft's in-house agency. My expertise
+                spans from scrappy campaigns to nation-wide initiatives. I like
+                to craft and execute campaigns end-to-end. From strategy to
+                delivery. I've also helped win several new business pitches.
+              </p>
+            </CardContent>
           </TabsContent>
           <TabsContent value="founder">
-              <CardContent className="space-y-4 pt-6">
-                <h3 className="text-xl font-semibold">
-                  Aspiring Tech Founder
-                </h3>
-                <div className="flex flex-wrap gap-1">
-                  {founderSkills.map((skill) => (
-                    <TooltipProvider key={skill.id}>
-                      <Tooltip>
-                        <TooltipTrigger>
-                          <Badge variant="outline" className="rounded-full">{skill.skill}</Badge>
-                        </TooltipTrigger>
-                        <TooltipContent><p>{skill.level}</p></TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  ))}
-                </div>
-                <Separator className="my-4" />
-                <p>
-                  After moving back to Sweden in 2020, I briefly studied game design before{" "}
-                  starting my own marketing agency, setting me on the path of entrepreneurship.{" "}
-                  In 2022 I founded Semble, a talent marketplace for game devs, which lasted a year.
-                  After that, I started to learn to code, and in early 2024 I launched a web app for{" "}
-                  Nexus TCG, the AI-powered digital card game I'm building.
-                </p>
-              </CardContent>
+            <CardContent className="space-y-4 pt-6">
+              <h3 className="text-xl font-semibold">Aspiring Tech Founder</h3>
+              <div className="flex flex-wrap gap-1">
+                {founderSkills.map((skill) => (
+                  <TooltipProvider key={skill.id}>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Badge variant="outline" className="rounded-full">
+                          {skill.skill}
+                        </Badge>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{skill.level}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
+              <Separator className="my-4" />
+              <p>
+                After moving back to Sweden in 2020, I briefly studied game
+                design before starting my own marketing agency, setting me on
+                the path of entrepreneurship. In 2022 I founded Semble, a talent
+                marketplace for game devs, which lasted a year. After that, I
+                started to learn to code, and in early 2024 I launched a web app
+                for Nexus TCG, the AI-powered digital card game I'm building.
+              </p>
+            </CardContent>
           </TabsContent>
         </Tabs>
       </Card>
@@ -178,13 +177,15 @@ export default async function About() {
         <Card className="px-1 pt-1">
           <CardContent className="space-y-4 pt-6">
             <CardTitle>Clients</CardTitle>
-            <CardDescription>Companies I've had the pleasure to work with.</CardDescription>
+            <CardDescription>
+              Companies I've had the pleasure to work with.
+            </CardDescription>
             <div className="grid w-full md:grid-cols-5 grid-cols-3 md:gap-4 gap-2">
-              {clients.map(( client: Client ) => (
+              {clients.map((client: Client) => (
                 <a
                   key={client.id}
-                  href={client.url} 
-                  target="_blank" 
+                  href={client.url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="
                     md:w-[96px]
@@ -198,7 +199,7 @@ export default async function About() {
                     transition-all
                     duration-300
                   "
-                >   
+                >
                   <Image
                     src={client.logo}
                     alt={`${client.client} logo`}

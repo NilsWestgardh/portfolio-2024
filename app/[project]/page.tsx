@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 // Utils
-import { unstable_cache } from 'next/cache';
+import { unstable_cache } from "next/cache";
 import { cookies } from "next/headers";
 import Image from "next/image";
 import clsx from "clsx";
@@ -9,12 +9,7 @@ import { getProjectById } from "@/app/server/actions";
 // Types
 import type { Project, Award } from "@/app/lib/types/database";
 // Components
-import { 
-  Card, 
-  CardContent, 
-  CardHeader, 
-  CardTitle 
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -22,20 +17,22 @@ import { Skeleton } from "@/components/ui/skeleton";
 // Icons
 import { MdOpenInNew } from "react-icons/md";
 
-export default async function Project({ 
-  params 
-}: { 
-  params: { project: string } 
+export default async function Project({
+  params,
+}: {
+  params: { project: string };
 }) {
   const cookieStore = cookies();
 
   const cachedGetProjectById = unstable_cache(
     async (id: string) => getProjectById(cookieStore, id),
-    ['project'],
+    ["project"],
     { revalidate: 60 }
   );
 
-  const projectData: Project | null = await cachedGetProjectById(params.project);
+  const projectData: Project | null = await cachedGetProjectById(
+    params.project
+  );
 
   if (!projectData) return null;
 
@@ -54,7 +51,9 @@ export default async function Project({
       >
         <CardHeader className="flex flex-row justify-between w-full">
           <div className="flex flex-col justify-start items-start w-full">
-            <CardTitle className="text-3xl font-bold">{projectData.title}</CardTitle>
+            <CardTitle className="text-3xl font-bold">
+              {projectData.title}
+            </CardTitle>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>{projectData.client}</span>
               <span>•</span>
@@ -63,8 +62,16 @@ export default async function Project({
           </div>
           {projectData.link && (
             <div className="flex justify-end">
-              <Button variant="outline" asChild className="flex justify-center items-center gap-2">
-                <a href={projectData.link} target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                asChild
+                className="flex justify-center items-center gap-2"
+              >
+                <a
+                  href={projectData.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   View Project
                   <MdOpenInNew />
                 </a>
@@ -82,13 +89,14 @@ export default async function Project({
               className="w-full rounded-lg object-cover"
             />
           )}
-          
-          <div className={clsx("grid gap-4 pb-4",
-              {
-                "grid-cols-3": projectData.skills && projectData.skills.length > 0,
-                "grid-cols-2": !projectData.skills || projectData.skills.length === 0,
-              }
-            )}
+
+          <div
+            className={clsx("grid gap-4 pb-4", {
+              "grid-cols-3":
+                projectData.skills && projectData.skills.length > 0,
+              "grid-cols-2":
+                !projectData.skills || projectData.skills.length === 0,
+            })}
           >
             <div>
               <h3 className="font-semibold mb-2">Product</h3>
@@ -104,8 +112,8 @@ export default async function Project({
                 <div className="flex flex-wrap gap-1">
                   {projectData.skills.map((skill, index) => (
                     <Badge
-                      key={index} 
-                      variant="outline" 
+                      key={index}
+                      variant="outline"
                       className="rounded-full"
                     >
                       {skill}
@@ -120,19 +128,24 @@ export default async function Project({
             <div>
               <h3 className="font-semibold mb-2">Awards</h3>
               <div className="grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-2">
-                {projectData.awards.map((
-                  award: Award, 
-                  index: number
-                ) => (
+                {projectData.awards.map((award: Award, index: number) => (
                   <Card key={index} className="shadow-none">
                     <CardContent className="flex flex-row gap-4 px-4 pt-4 pb-6">
                       <div className="md:w-1/4 w-1/5">
-                        <span className="md:text-lg text-sm font-semibold">{award.award}</span>
+                        <span className="md:text-lg text-sm font-semibold">
+                          {award.award}
+                        </span>
                       </div>
                       <div className="md:w-3/4 w-4/5">
-                        <span className="md:text-lg text-sm font-medium mr-2">{award.show}</span>
-                        <span className="md:text-lg text-sm font-light">{award.year}</span>
-                        <p className="md:text-md text-xs text-muted-foreground md:mt-2 mt-1">{award.category}</p>
+                        <span className="md:text-lg text-sm font-medium mr-2">
+                          {award.show}
+                        </span>
+                        <span className="md:text-lg text-sm font-light">
+                          {award.year}
+                        </span>
+                        <p className="md:text-md text-xs text-muted-foreground md:mt-2 mt-1">
+                          {award.category}
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -141,15 +154,12 @@ export default async function Project({
             </div>
           )}
 
-          {(projectData.problem 
-            || projectData.solution 
-            || projectData.insight 
-            || projectData.audience 
-            || projectData.description) 
-              && !projectData.video 
-              && (
-            <Separator className="my-4" />
-          )}
+          {(projectData.problem ||
+            projectData.solution ||
+            projectData.insight ||
+            projectData.audience ||
+            projectData.description) &&
+            !projectData.video && <Separator className="my-4" />}
 
           {projectData.video && (
             <iframe
@@ -197,17 +207,17 @@ export default async function Project({
           {projectData.images && projectData.images.length > 0 && (
             <div className="grid grid-cols-2 gap-4">
               {projectData.images.map((image, index) => (
-                <Suspense 
-                  key={index} 
+                <Suspense
+                  key={index}
                   fallback={
-                    <Skeleton 
+                    <Skeleton
                       className="
                         w-full 
                         max-w-[600px] 
                         h-full 
                         max-h-[400px] 
                         rounded-lg
-                      " 
+                      "
                     />
                   }
                 >
@@ -225,5 +235,5 @@ export default async function Project({
         </CardContent>
       </Card>
     </>
-  )
+  );
 }

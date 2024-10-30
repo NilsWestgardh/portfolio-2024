@@ -1,6 +1,10 @@
 import React from "react";
+// Utils
+import dynamic from "next/dynamic";
 // Components
-import Gallery from "@/components/project/gallery";
+const Gallery = dynamic(() => import("@/components/project/gallery"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -16,7 +20,7 @@ export default function Home() {
          lg:px-0
          w-full
         "
-      >
+    >
       <Gallery />
     </div>
   );
