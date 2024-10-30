@@ -15,21 +15,15 @@ const Thumbnail = dynamic(() => import("@/components/project/thumbnail"), {
 export default async function Gallery() {
   const cookieStore = cookies();
 
-  console.log("I'm firing");
-
   const cachedGetAllProjects = unstable_cache(
     async () => getAllProjects(cookieStore),
     ["all-projects"],
-    { revalidate: 60 }
+    { revalidate: 3600 }
   );
-
-  console.log("I'm firing 2");
 
   const projects: Projects = await cachedGetAllProjects();
 
-  console.log("Projects fetched (client):", projects);
-
-  console.log("I'm firing 3");
+  console.log("Projects fetched:", projects.length);
 
   return (
     <div
