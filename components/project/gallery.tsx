@@ -28,6 +28,7 @@ export default async function Gallery() {
   return (
     <div
       id="project-gallery"
+      data-testid="projects-grid"
       className="
         grid 
         grid-cols-1 
