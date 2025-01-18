@@ -1,7 +1,8 @@
 import { schedules } from "@trigger.dev/sdk/v3";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
+import chrome from "@sparticuz/chromium";
 
-// Warmup runs every hour
+// Warmup runs every 30 minutes
 export const warmup = schedules.task({
   id: "warmup",
   cron: "*/30 * * * *",
@@ -10,17 +11,13 @@ export const warmup = schedules.task({
     console.log(`[Server] Starting refresh at ${now}`);
 
     try {
+      const executablePath = await chrome.executablePath();
+
       const browser = await puppeteer.launch({
-        headless: true,
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-gpu',
-          '--disable-software-rasterizer',
-          '--hide-scrollbars',
-          '--disable-extensions'
-        ]
+        args: chrome.args,
+        defaultViewport: chrome.defaultViewport,
+        executablePath,
+        headless: chrome.headless,
       });
 
       const page = await browser.newPage();
