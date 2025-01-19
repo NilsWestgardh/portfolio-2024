@@ -11,17 +11,19 @@ export const warmup = schedules.task({
     console.log(`[Server] Starting refresh at ${now}`);
 
     try {
-      const executablePath = await chrome.executablePath("/tmp/chromium");
+      const executablePath = await chrome.executablePath();
 
       const browser = await puppeteer.launch({
         args: [
           ...chrome.args,
           "--hide-scrollbars",
-          "--disable-web-security"
+          "--disable-web-security",
+          "--no-sandbox",
+          "--disable-setuid-sandbox"
         ],
         defaultViewport: chrome.defaultViewport,
         executablePath,
-        headless: true,
+        headless: chrome.headless,
       });
 
       const page = await browser.newPage();
