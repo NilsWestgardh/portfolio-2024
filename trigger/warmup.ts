@@ -12,8 +12,11 @@ export const warmup = schedules.task({
     try {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
+      const url = process.env.NEXT_PUBLIC_SITE_URL!;
 
-      await page.goto(process.env.NEXT_PUBLIC_SITE_URL!, {
+      console.log(`[Server] Navigating to ${url}`);
+
+      await page.goto(url, {
         waitUntil: "networkidle0"
       });
 
