@@ -1,0 +1,27 @@
+{
+  "configPath": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/CloudStorage/Dropbox/Projects/portfolio-24/trigger.config.mjs",
+  "tasks": [
+    {
+      "id": "warmup",
+      "retry": {
+        "maxAttempts": 3,
+        "factor": 2,
+        "minTimeoutInMs": 1000,
+        "maxTimeoutInMs": 10000,
+        "randomize": true
+      },
+      "triggerSource": "schedule",
+      "schedule": {
+        "cron": "*/30 * * * *",
+        "timezone": "UTC"
+      },
+      "maxDuration": 300,
+      "filePath": "trigger/warmup.ts",
+      "exportName": "warmup",
+      "entryPoint": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/CloudStorage/Dropbox/Projects/portfolio-24/trigger/warmup.mjs"
+    }
+  ],
+  "workerEntryPoint": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/Caches/pnpm/dlx/ga5awpyclyrkw73h3csn2awp5u/19494e5b888-132f/node_modules/.pnpm/trigger.dev@3.3.11/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs",
+  "runtime": "node",
+  "customConditions": []
+}

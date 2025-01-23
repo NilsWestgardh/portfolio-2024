@@ -1,7 +1,5 @@
 import { schedules } from "@trigger.dev/sdk/v3";
-import puppeteer from "puppeteer";
 
-// Warmup runs every 30 minutes
 export const warmup = schedules.task({
   id: "warmup",
   cron: "*/30 * * * *",
@@ -10,28 +8,27 @@ export const warmup = schedules.task({
     console.log(`[Server] Starting refresh at ${now}`);
 
     try {
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-      const url = process.env.NEXT_PUBLIC_SITE_URL!;
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL!;
+      console.log(`[Server] Fetching ${baseUrl}`);
 
-      console.log(`[Server] Navigating to ${url}`);
-
-      await page.goto(url, {
-        waitUntil: "networkidle0"
+      const response = await fetch(baseUrl, {
+        headers: {
+          'User-Agent': 'Trigger.dev Warmup Task'
+        },
+        cache: 'no-store'
       });
 
-      // Wait for content to load
-      const projects = await page.waitForSelector('[data-testid="projects-grid"]', {
-        timeout: 10000
-      });
-
-      if (!projects) {
-        throw new Error("Failed to load projects");
+      if (!response.ok) {
+        throw new Error(`Failed to fetch with status: ${response.status}`);
       }
 
-      console.log(`[Server] Warmup successful - page loaded with content`);
+      const html = await response.text();
+      
+      if (!html.includes('data-testid="projects-grid"')) {
+        throw new Error('Projects grid not found in response');
+      }
 
-      await browser.close();
+      console.log(`[Server] Warmup successful - page fully rendered`);
     } catch (error) {
       console.error(`[Server] Error during warmup: ${error}`);
       throw error;

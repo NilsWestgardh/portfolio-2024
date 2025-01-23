@@ -1,0 +1,64 @@
+{
+  "contentHash": "6d0712008a169c2ed8d8c3617a452fda",
+  "runtime": "node",
+  "cliPackageVersion": "3.3.11",
+  "packageVersion": "3.3.11",
+  "environment": "dev",
+  "target": "dev",
+  "files": [
+    {
+      "entry": "trigger/index.ts",
+      "out": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/CloudStorage/Dropbox/Projects/portfolio-24/trigger/index.mjs"
+    },
+    {
+      "entry": "trigger/warmup.ts",
+      "out": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/CloudStorage/Dropbox/Projects/portfolio-24/trigger/warmup.mjs"
+    }
+  ],
+  "sources": {
+    "trigger/index.ts": {
+      "contents": "eJxLrSjILypR0FJIK8rPVVDS0y9PLMotLVCyBgBwjwhZ",
+      "contentHash": "3f50ddf5fe652490835a49f2c1ea8b63"
+    },
+    "trigger/warmup.ts": {
+      "contents": "eJyFVGFr2zAQ/e5fcTWFOKV2MvrNIWNsa6FQSllaNiilVa2LrVWWzOkUN4T892HHdtKVbhiDdXq6e/feyaqsLDFswGUFSq/RwRaWZEsIvzCpPEdKJK4mTr5MVmfhLFC7A5WvKmRE6sDDOpwFwWQCPwWVvgLyxgGukNZwNoVSGc/oAnxtc2TWOIZ6h5zvGSQs3Eu0CQCUTCHcAcLTACAja1IITyZnUzjZPW2cvElBuLXJIKrEWlshxzD/DE0O6OoYW8McDNbwXTD2sIRViY5FWY1nA9hqTLTNo6f7BdIK6QEWLIiVyYFwSegKEAzHG2Pr7dN4FrQHmdZdvb7iM9naIcEcRC3UgWaJFt5kRdTDAQTlLoX7YQ0wimNjYyeMfLavo9O3O1I58awxdsheyf+hJK5iV5SxdyLHj0B55UfDzsMeVKCQGp1LgcljF952YvWdViLHoc2u7cRgfSNyjP7CetIwh4pshs4laFbJ9fmv28ebu69Xl98eF5e35493P66OOlU/MuRarFQuWkvYwvHGk95bAb3gIsckt2wjT/oU9nI3u3eGlU4hNMi1pRclNU7Dg/66z3aWFcPSUkOF0XBTsZmdtxKQ/Y0Zu73bTfHm68LSAjVmbCka3UvBImZ0rOQ87A/FOSkZPowOOTaDaT2n8Gk6nU7fE1NLiI76BOPDgwXZuh30cyJLUXghlEbZsx6YhoMx239r3d1l57PGsqXXEO8cb9KhhFpx0WvzzoN+GjJt3TALW8gEZwVE2DAcv7k3Tf02fMCgbQSkp8bv3f8gheNNC2ttP+y8jXZ1gubdjv8A2jZ90g==",
+      "contentHash": "976facb4d29d484df05dd53f058aa142"
+    },
+    "trigger.config.ts": {
+      "contents": "eJxlkE1rwzAMhu/5FcKnDUKTLTf3srJeCttttzGGGyuuu9gKihK6lvz3EdPsg10k8Uiv9CIfOmKBC1hsfMRHio13MEHDFEA9CHvnkFcWx6K3H8VYqXWW4SmJLDZmaOWP9OaSAXRMR6xFg5qr99rtA1E3Hj59G/hsm+F4UHkGwEMUH1CDimQxoZbcE47YalAtuYSCOW0HNuIpaqjKModZisIeew3zPQCMZt+i3cUtjhqEB8wTv1pcxtKyjQiGTnoNVb5QH198QBpkF597DXdlWeY/in+972ZjaiHWcL8ANtFS8Gf87WKaUwrWc6/hVa2K62fVW55Nt+vsC+yid5k=",
+      "contentHash": "6516845c5defef581fe6120cd18ec6f2"
+    },
+    "tsconfig.json": {
+      "contents": "eJxlUctqwzAQvPsrhI4mte8+FUoPDQ2BXoMptrV1ttELaZW6hPx7kWKltXsSOzM7O7u6FIzxwSiLEtzeEhrtecMuBWOMcYk9b9iBC6P4hsWnQgLX9RJiDV7DRLzd3NSdlOZrG9vJBZhBf0L7iv3TEYbTiiGHAy0xbZ4VrjDwOyOChBdN4IxdkipRvLmHWeBv4I0Mcamo6IMWElyWuEieYeuN3mWXP87ojewIxI1bbfXpp+hoHXhwZ8iWqAcHCjR1cqm3MoyYLntIAJsvfFu6U2mDlH+Gr+nNl7UdHX+/hTH+WJfpY6q65G2RG65RHkPIIOA+K/k+gD5XoiKfo5ZlXf4vp1xXsammbwu+XknJ4TiCqwajP3CMRDEn5TDdR3NtBLyr+XhtcS1+ALjuqzc=",
+      "contentHash": "4483166f32a5791fe3998fda7c02a80d"
+    },
+    "package.json": {
+      "contents": "eJyNlcty2zAMRff+Co3WIfWw0qRZZdHv6AxMIjJbiuQQkJo0k3/v6GGak9hpdpbuAUAAV/TrrijKEM0EjOVDwXHEm/kVqWgCU/lQvO6KoihKjVP5UJQOn7nQOBVC8BgPvrxZ5cNorE7A+rRJxBA5SevTrijeljoaAzqNThnMij0qsMoPFQ4H1CIiqCXBz0beyvqU9zGCNs9iNNUCCKCAikUENn6jm0/oCRji/zmjvKMN21/HLBzQLlj7WbYB3XjIyjbXQAeT6edO3BKzBbTXMxMGiMD+Cy2R9fx/iuFAX6C8t2xCAtsEUoDIRo1/K3WMfjDjsEL7RtZZ3zQGOABhRbQc3QIj8QV5+yF+0QWMo+l7jFLjVJH+PRN7uZfNuc6EUaGtwIF9YaPOK/2AUEDUwjgy/ZFPXC2b1JqyQCQmiAacQgEjH300/LKgtbw7T0tZek6mSIU0MIqnzVX7/AhPEQaMYvDz4tfKs+W7k96jIU5eSGF2VEZj9p3Usmsyr8wf3hrVyVbe5a8FH3FA2qIygzuvUTwhq2M6ZhpA8MRH32+rmPf+rZb79+qcYdG73EBhDAEZcfVp28n6giaUj3gCsuDsJrjP57Z6Ufvhqnb+jG/zLhmM/WOcFgPGfqsou4+6Ilo91Z0TZ5oAZ4b1Bl3NcpffcNOPy5dcbtp0f76zLb8EpOo0yraWsyHeqWkqzb1sZXd/ST4NZ0GahKBTXhvXb/tvZJPWiGSNW4f9fa567nvOuvw9zOLt4s+5293bP51osag=",
+      "contentHash": "4b93c8524f17d1cd75a1b5e18d7f0243"
+    }
+  },
+  "externals": [
+    {
+      "name": "import-in-the-middle",
+      "version": "1.11.0"
+    }
+  ],
+  "config": {
+    "project": "proj_cgbmoopvhyilmrzdfujh",
+    "dirs": [
+      "./trigger"
+    ]
+  },
+  "outputPath": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ",
+  "runWorkerEntryPoint": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/Caches/pnpm/dlx/ga5awpyclyrkw73h3csn2awp5u/19494e5b888-132f/node_modules/.pnpm/trigger.dev@3.3.11/node_modules/trigger.dev/dist/esm/entryPoints/dev-run-worker.mjs",
+  "indexWorkerEntryPoint": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/Caches/pnpm/dlx/ga5awpyclyrkw73h3csn2awp5u/19494e5b888-132f/node_modules/.pnpm/trigger.dev@3.3.11/node_modules/trigger.dev/dist/esm/entryPoints/dev-index-worker.mjs",
+  "configPath": "/Users/nilswestgardh/Library/CloudStorage/Dropbox/Projects/portfolio-24/.trigger/tmp/build-fYRRBQ/CloudStorage/Dropbox/Projects/portfolio-24/trigger.config.mjs",
+  "customConditions": [],
+  "deploy": {
+    "env": {}
+  },
+  "build": {},
+  "otelImportHook": {
+    "include": []
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../../../trigger/index.ts"],
+  "sourcesContent": ["export * from \"./warmup\";"],
+  "mappings": ";;;;;;;;;;;;;;;AAAA;",
+  "names": []
+}
