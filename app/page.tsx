@@ -1,10 +1,6 @@
 import React from "react";
-// Utils
-import dynamic from "next/dynamic";
 // Components
-const Gallery = dynamic(() => import("@/components/project/gallery"), {
-  ssr: false,
-});
+import Gallery from "@/components/project/gallery";
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import { schedules } from "@trigger.dev/sdk/v3";
+import { schedules, wait } from "@trigger.dev/sdk/v3";
 
 export const warmup = schedules.task({
   id: "warmup",
@@ -22,9 +22,13 @@ export const warmup = schedules.task({
         throw new Error(`Failed to fetch with status: ${response.status}`);
       }
 
+      await wait.for({ seconds: 10 });
+
       const html = await response.text();
+      const pageLoaded = html.includes('data-testid="projects-grid"') || 
+                        html.includes('id="project-gallery"');
       
-      if (!html.includes('data-testid="projects-grid"')) {
+      if (!pageLoaded) {
         throw new Error('Projects grid not found in response');
       }
 
