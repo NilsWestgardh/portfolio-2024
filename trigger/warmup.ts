@@ -30,9 +30,11 @@ export const warmup = schedules.task({
       
       if (!pageLoaded) {
         throw new Error('Projects grid not found in response');
+      } else if (pageLoaded) {
+        console.log(`[Server] Warmup successful - page fully rendered`);
       }
 
-      console.log(`[Server] Warmup successful - page fully rendered`);
+      console.log(`[Server] Warmup complete`);
     } catch (error) {
       console.error(`[Server] Error during warmup: ${error}`);
       throw error;
